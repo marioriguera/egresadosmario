@@ -1,0 +1,174 @@
+{% extends "General/index.html" %} {% block encabezado %}
+
+<header class="row">
+    {% if messages %} {% for message in messages %}
+    <p class="mensaje_exito"><span class="mensaje_exito glyphicon glyphicon-ok"></span> {{ message }}</p>
+    {% endfor %} {% endif %}
+</header>
+{% endblock %} {% block section_superior %}
+<div class="panel panel-primary">
+    <div class="panel-heading">Listado de entidades</div>
+
+    <div class="panel-body">
+        <div class="panel-body-superior">
+            <div class="btn-group btn_group pull-left">
+                <a class="btn btn-success btn_gestion" href="/entidades/registrar_entidad">
+                    <span class="glyphicon glyphicon-plus"></span> Registrar entidad
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 pull-right">
+                    <form method="post" action="/entidades/buscar">{% csrf_token %} {% if busqueda%}
+                        <div class="div_panel_busqueda_entidad">
+                            <input disabled type="text" name="texto_entidad" class="" value="{{ texto }}">
+                            <a href="/entidades" class="">Limpiar</a>
+                        </div>
+
+                        {% else %}
+
+                        <div class="div_panel_busqueda_entidad">
+                            <input placeholder="Escriba aquí" type="text" name="texto_entidad" class="">
+                            <input type="submit" class="" value="Buscar">
+                        </div>
+
+                        {% endif %}
+                    </form>
+                </div>
+                <!-- /input-group -->
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="usar_DataTable_3 table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+
+                    <tr>
+                        <th>Codigo Entidad</th>
+                        <th>Nombre</th>
+                        <th>Organismo</th>
+                        <th>Dirección</th>
+                        <th>Municipio</th>
+                        <th>Tipo de Entidad</th>
+                        <th>Estado</th>
+
+                        <th id="opciones_gestion_titulo">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for entidad in entidades %}
+                    <tr>
+                        <td>{{ entidad.id_codigo_entidad }}</td>
+                        <td>{{ entidad.e_nombre }}</td>
+                        <td>{{ entidad.id_organismo_s }}</td>
+                        <td>{{ entidad.direccion }}</td>
+                        <td>{{ entidad.municipio }}</td>
+                        <td>{{ entidad.id_tipo }}</td>
+                        {% if entidad.estado == True %}
+                        <td> Activado </td>
+                        {% else %}<td>Desactivado</td>{% endif %}
+
+
+
+                        <td class="opciones_gestion">
+                            <button id="{{ entidad.id_codigo_entidad  }}" class="btn btn-info modal-entidad" data-toggle="modal" data-target="#modal_modificar_entidad" onclick="Objeto.__init__({{ entidad.id_codigo_entidad}},'entidades','modal_modificar_entidad').modificar();">
+                                  <span class="glyphicon glyphicon-pencil">
+                                  </span>
+                              </button>
+
+                            <button id="{{ entidad.id_codigo_entidad  }}" class="btn btn-danger modal-entidad" data-toggle="modal" data-target="#modal_eliminar_entidad" onclick="Objeto.__init__({{ entidad.id_codigo_entidad }},'entidades','modal_eliminar_entidad').eliminar();">
+                                  <span class="glyphicon glyphicon-trash">
+                                  </span>
+                              </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% block paginate %}
+        <ul class="pagination pull-right" style="position: relative;top: -25px;padding: 0;margin: 0">
+            {% if entidades.has_previous %}
+            <li>
+                <a href="?pagina={{ entidades.previous_page_number }}" aria-label="Previous">
+                            Anterior
+                        </a>
+            </li>
+            {% else %}
+            <li class="disabled">
+                <a href="#" aria-label="Previous">
+                            Anterior
+                        </a>
+            </li>
+            {% endif %} {% if paginas %} {% for pagina in paginas %} {% if pagina == entidades.number %}
+            <li class="active"><a href="?pagina={{ pagina }}">{{ pagina }}</a></li>
+            {% else %}
+            <li><a href="?pagina={{ pagina }}">{{ pagina }}</a></li>
+            {% endif %} {% endfor %} {% else %}
+            <li class="active"><a href="?pagina=1">1</a></li>
+            {% endif %} {% if entidades.has_next %}
+            <li>
+                <a href="?pagina={{ entidades.next_page_number }}" aria-label="Next">
+                            Próximo
+                        </a>
+            </li>
+            {% else %}
+
+            <li class="disabled">
+                <a href="#" aria-label="Next">
+                            Próximo
+                        </a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endblock %}
+    </div>
+
+</div>
+
+
+
+
+<div class="modal fade" id="modal_eliminar_entidad" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title modal_eliminar">Confirmación de desactivación</h4>
+            </div>
+            <div class="modal-body">
+                <p>Está seguro de desactivar la entidad seleccionada</p>
+            </div>
+            <div class="modal-footer">
+                <a type="submit" class="btn btn-default">Aceptar</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal_modificar_entidad" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title modal_modificar">Confirmación de modificación</h4>
+            </div>
+            <div class="modal-body">
+                <p>Está seguro de modificar la entidad seleccionada</p>
+            </div>
+            <div class="modal-footer">
+                <a type="submit" class="btn btn-default">Aceptar</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
