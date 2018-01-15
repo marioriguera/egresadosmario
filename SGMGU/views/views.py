@@ -176,5 +176,8 @@ def nomencladores(request):
     return render(request, "General/index.html", {})
 
 def geforza(request):
-    return render(request, "General/index.html", {})
+    return render(request, "GeForza/geforza.html", {})
+
+def demanda_info(request):
+    return render(request, "GeForza/demanda_info.html", {})
 

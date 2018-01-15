@@ -1,10 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{#    //-------CSS y Plugins mario----------------------------#}
+{#    <link href="{% static "plugins/max_plugs/carousel.css" %}" rel="stylesheet"/>#}
+{#    <link href="{% static "plugins/max_plugs/bootstrap v4 beta.min.css" %}" rel="stylesheet"/>#}
+{#    <script src="{% static "plugins/max_plugs/popper.min.js" %}"></script>#}
+{#    <script src="{% static "plugins/max_plugs/bootstrap v4 beta.min.js" %}"></script>#}
+{#    <script src=" {% static "plugins/max_plugs/holder.min.js" %}"></script>#}
+{#    <script src=" {% static "plugins/max_plugs/jquery-3.2.1.slim.min.js" %}"></script>#}
+{#    jquery-3.2.1.slim.min#}
+{% extends "General/index.html" %}
+{% load staticfiles %}
+{% block encabezado %}{% endblock %}
+{% block section_superior %}
 
-</body>
-</html>
+    <body>
+    <div>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron" style="background-color: #0c0c0c">
+            <div class="container">
+                <h1 style="color: white">GeForza</h1>
+                <h4 style="color: #7ab5d3">Sistema Unificado de Gestión de Fuerza de Trabajo Calificado</h4>
+                <p style="color: lightgrey">El departamento de Fuerza de Trabajo Calificada (FTC) del Ministerio del
+                    Trabajo y Seguridad Social
+                    (MTSS), tiene como objetivo fundamental lograr el máximo equilibrio entre la formación y el empleo
+                    de
+                    los
+                    estudiantes de la Educación Superior, Técnica y Profesional. Por ello, y dado que entre los recursos
+                    laborales, este segmento constituye un factor decisivo para el desarrollo económico, social y
+                    cultural de
+                    cada territorio y el país, es importante que su existencia se corresponda con el plan en sus
+                    aspectos
+                    cuantitativos y cualitativos.
+                </p>
+                <p style="color: lightgrey">En aras de modernizar los sistemas empleados en la elaboración de los
+                    diferentes planes de Fuerza de
+                    Trabajo Calificada se desarrolló el Sistema Unificado de Gestión de Fuerza de Trabajo Calificada
+                    (GeForza).
+                </p>
+            </div>
+        </div>
+
+
+        <div role="main" style="background-color: rgba(77,125,98,1);
+background: -moz-linear-gradient(left, rgba(77,125,98,1) 0%, rgba(51,105,125,1) 98%, rgba(51,105,125,1) 100%);
+background: -webkit-linear-gradient(left, rgba(77,125,98,1) 0%, rgba(51,105,125,1) 98%, rgba(51,105,125,1) 100%);
+background: -o-linear-gradient(left, rgba(77,125,98,1) 0%, rgba(51,105,125,1) 98%, rgba(51,105,125,1) 100%);
+background: -ms-linear-gradient(left, rgba(77,125,98,1) 0%, rgba(51,105,125,1) 98%, rgba(51,105,125,1) 100%);
+background: linear-gradient(to right, rgba(77,125,98,1) 0%, rgba(51,105,125,1) 98%, rgba(51,105,125,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d7d62', endColorstr='#33697d', GradientType=1 ); border-radius: 20px;">
+            <!-- Marketing messaging and featurettes
+            ================================================== -->
+            <!-- Wrap the rest of the page in another container to center all the content. -->
+
+            <div class="container marketing">
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row" style="margin-top: 50px ">
+                    <div class="col-lg-4">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="div_img">
+                                <img src="{% static "img/demanda.png" %}" alt="..." class="img-circle"
+                                     style="display: block;margin: auto" width="200"
+                                     height="200">
+                            </div>
+                        </div>
+                        <h2 style="color: #0c0c0c ; text-align: center">Demanda</h2>
+                        <p style="color: white ; text-align: center">Permite gestionar la demanda de los graduados,
+                            donde sus principales funcionalidades son
+                            adicionar, modificar, eliminar y buscar las
+                            necesidades de graduados por distintos filtros.</p>
+                        <p><a class="btn btn-primary" style="display: block;margin: auto" href="/demanda_info" role="button">Ver
+                            detalles</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="div_img">
+                                <img src="{% static "img/existencia.png" %}" alt="..." class="img-circle"
+                                     style="display: block;margin: auto" width="200"
+                                     height="200">
+                            </div>
+                        </div>
+                        <h2 style="color: #0c0c0c ; text-align: center">Existencia</h2>
+                        <p style="color: white ; text-align: center">Permite gestionar la existencia de los graduados,
+                            donde sus principales funcionalidades son
+                            adicionar, modificar, eliminar y buscar las eficiencias de las
+                            carreras y especialidades en el periodo.</p>
+                        <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Ver
+                            detalles</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="div_img">
+                                <img src="{% static "img/fluctuacion.png" %}" alt="..." class="img-circle"
+                                     style="display: block;margin: auto"
+                                     width="200"
+                                     height="200">
+                            </div>
+                        </div>
+                        <h2 style="color: #0c0c0c ; text-align: center">Fluctuación</h2>
+                        <p style="color: white ; text-align: center">Permite gestionar la existencia de los graduados,
+                            tiene funcionalidades como
+                            adicionar, modificar, eliminar y buscar las
+                            fluctuaciones de las bajas de la fuerza de trabajo que estaba ocupada..</p>
+                        <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Ver
+                            detalles</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+
+
+                <!-- START THE FEATURETTES -->
+
+                <hr class="featurette-divider">
+
+                <div class="row featurette">
+
+                    <div class="row featurette">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading" style="color: #0c0c0c">Cargar "Sistema Matriz". <span
+                                    class="text-muted" style="color: #2C4257">XML.</span></h2>
+                            <p class="lead" style="color: white">Cargar los datos exportados por el sistema GeForza
+                                3.3.3 en su versión de
+                                escritorio. Esta funcionalidad es la encargada en obtener todos los datos de demanda,
+                                existencia y fluctuación ofrecidos por el usuario, pertenecientes a un organismo en
+                                específico.</p>
+                            <p>
+                                <input type="file" value="Importar" required name="disponibles_file">
+                            </p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="div_img">
+                                    <img src="{% static "img/guardar.png" %}" alt="..." class="img-circle "
+                                         width="200" height="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                    <div class="row featurette">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading" style="color: #0c0c0c">Indicaciones metodológicas. <span
+                                    class="text-muted" style="color: #2C4257">FTC.</span></h2>
+                            <p class="lead" style="color: white">La planificación de la formación y distribución de la
+                                Fuerza de Trabajo
+                                Calificada
+                                del país.</p>
+                            <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Ver
+                                detalles</a></p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="div_img">
+                                    <img src="{% static "img/documento.svg" %}" alt="..." class="img-circle"
+                                         width="200"
+                                         height="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading" style="color: #0c0c0c">Manuales. <span
+                                    class="text-muted" style="color: #2C4257">Usuario, Funcionalidades, Consejos.</span>
+                            </h2>
+                            <p class="lead" style="color: white">Está destinado a dar asistencia a las personas que
+                                utilizan este sistema en
+                                particular el módulo GeForza.</p>
+                            <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Ver
+                                detalles</a></p>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="div_img">
+                                    <img src="{% static "img/ayuda.png" %}" alt="..." class="img-circle" width="200"
+                                         height="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                    <div class="row featurette">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading" style="color: #0c0c0c">Reportes cuantitativos. <span
+                                    class="text-muted" style="color: #2C4257">Demanda, Existencia y Fluctuación.</span>
+                            </h2>
+                            <p class="lead" style="color: white">Los reportes cuantitativos ofrecidos tienen una
+                                estrecha relación de
+                                similitud
+                                con los existentes en el GeForza 3.3.3 en su versión de escritorio para mejor
+                                comprensión
+                                de los usuarios que utilicen esta web.</p>
+                            <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Ver
+                                detalles</a></p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="div_img">
+                                    <img src="{% static "img/reporte.png" %}" alt="..." class="img-circle"
+                                         width="200"
+                                         height="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                    <div class="row featurette">
+                        <div class="col-md-7 order-md-2">
+                            <h2 class="featurette-heading" style="color: #0c0c0c">Actualizar estudio. <span
+                                    class="text-muted" style="color: #2C4257">Demanda, Existencia y Fluctuación.</span>
+                            </h2>
+                            <p class="lead" style="color: white">Esta funcionalidad permite copiar los datos de demanda, existencia
+                                y fluctuación del año actual, al siguiente año. Es de sumo cuidado y atención a esta funcionalidad
+                            ya que no se podrá retroceder en el tiempo.</p>
+                            <p><a class="btn btn-primary" style="display: block;margin: auto" href="#" role="button">Actualizar</a>
+                            </p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="div_img">
+                                    <img src="{% static "img/actualizar.png" %}" alt="..." class="img-circle"
+                                         width="200"
+                                         height="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="featurette-divider">
+
+                </div>
+
+
+                <!-- FOOTER -->
+                <footer class="container" style="margin-bottom: 50px">
+                    {#                    <p class="btn btn-primary" style="color: white"><a href="#">Volver arriba</a></p>#}
+                    <p style="color: white"> 2017 Departamento de Fuerza de Trabajo Calificada, FTC. &middot; MTSS
+                        &middot; La Habana</p>
+                </footer>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </body>
+
+
+
+{% endblock %}

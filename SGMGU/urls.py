@@ -106,6 +106,7 @@ urlpatterns = [
 
     #url para el menu de geforza
     url(r'^geforza$',geforza,name='geforza'),
+    url(r'^demanda_info$',demanda_info,name='demanda_info'),
 
     url(r'^entidades$',gestion_entidades,name='entidades'),
     url(r'^entidades/registrar_entidad$',registrar_entidad),

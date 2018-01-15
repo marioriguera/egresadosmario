@@ -1,0 +1,45 @@
+{% extends "General/index.html" %}
+{% load staticfiles %}
+{% block encabezado %}{% endblock %}
+{% block section_superior %}
+
+    <div style="margin: 20px;background-color: #1a1a1a">
+        <hr class="featurette-divider">
+
+        <div style="margin: 20px ; background-color: #2C4257;background: white url('/static/img/background-jumbotron.jpg');)">
+
+            <ol class="breadcrumb" style="background-color: transparent;color: #0c0c0c;font-weight: bold">
+                <li><a href="/inicio">Inicio</a></li>
+                <li><a href="/geforza">GeForza</a></li>
+                <li class="active">Demanda</li>
+            </ol>
+
+            <div class="jumbotron" style="background-color: transparent">
+                <h1 style="text-align: center ; margin-bottom: 60px">Demanda</h1>
+            </div>
+
+        </div>
+
+        <div style="margin: 20px ; font-weight: bold ; color: white">
+            <p>Se mostrarán todos los datos que se encuentran en la base de datos, del año en curso, nombre del
+            organismo, nombre del OSD, nombre de la entidad, provincia y municipio del graduado, nombre de la
+            carrera, y la cantidad de graduados que se demandan.
+        </p>
+        <p>
+            Una vez que se hayan mostrado las demandas de graduados creadas hasta el momento puede insertar
+            una nueva demanda. Para ello haga clic en la opción “Adicionar”.
+        </p>
+        <p>Automáticamente se mostrará la interfaz Adicionar demanda de graduados. Deberá especificar los datos
+            requeridos para insertar la demanda. Deberá introducir el nombre o código del organismo, provincia,
+            municipio, nombre o código de la entidad, provincia y municipio del graduado, nombre o código de la
+            carrera o especialidad, cantidad de graduados por años. Si desea cancelar la inserción presione el botón
+            “Cancelar”, si desea guardar los datos insertados e insertar una nueva demanda de graduados, presione
+            el botón “Aplicar” y si solamente desea insertar esa demanda de graduados, guarde los datos insertados
+            presionando el botón “Aceptar”</p>
+        <p>Se mostrará un mensaje de información indicando que la demanda fue insertada satisfactoriamente.</p>
+        </div>
+
+
+    </div>
+
+{% endblock %}
